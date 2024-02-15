@@ -1,0 +1,93 @@
+<p>calendar works!</p>
+<p>
+    <mat-toolbar color="primary">
+      <span>Event Calendar</span>
+    </mat-toolbar>
+  </p>
+  <mat-accordion *ngFor="let evt of currentEvts">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>{{evt.organizer}}</h2>  
+        </mat-panel-title>
+        <mat-panel-description>
+        
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <div>
+      <b>{{evt.organizer}}</b> will be going to a
+      <b>{{evt.evtType}}</b> at
+      <b>{{evt.evtLocation}}</b> 
+      from <b> {{evt.startDate }} </b> to
+      <b>{{evt.endDate }} </b> 
+     <br>
+        </div>
+  
+        <div>
+      <b>More about the event</b>
+      <b> {{evt.description}}</b>
+    </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <form class="example-form" id="time" [formGroup]="evtSch">
+    <div class="container">
+    <div class="name">
+      <mat-form-field class="example-full-width">
+        <mat-label>Your Name</mat-label>
+        <input matInput  formControlName="organizer">
+      </mat-form-field>
+    </div>
+  
+    <div class="range">
+   <mat-form-field>
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+      <input matStartDate formControlName="start" placeholder="Start date">
+      <input matEndDate formControlName="end" placeholder="End date">
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+  <div class="evtName">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name of Event</mat-label>
+        <input matInput  formControlName="evtName">
+      </mat-form-field>
+    </div>
+  <div class="location">
+      <mat-form-field class="example-full-width">
+        <mat-label>Location</mat-label>
+        <input matInput  formControlName="evtLocation">
+      </mat-form-field>
+    </div>
+    <div class="evtType">
+      <p><mat-label>Nature of Event</mat-label>
+    </p>
+      <mat-radio-group aria-label="Select an option" (change)="radioValues($event)">
+        <mat-radio-button value="Meeting">Meeting</mat-radio-button><br>
+        <mat-radio-button value="House Visit">House Visit</mat-radio-button><br>
+        <mat-radio-button value="Cultural Event">Cultural</mat-radio-button><br>
+        <mat-radio-button value="Training">Training</mat-radio-button><br>
+      </mat-radio-group>
+    </div>
+    <div class="description">
+      <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Provide details..." formControlName="description"></textarea>
+      </mat-form-field>
+      </div>
+  
+  
+  <div class="example-button-row">
+  
+    <button mat-raised-button color="accent" (click)="onSubmit()">Publish</button>
+   
+  </div>
+  </div>
+  </form>
+  
+  
+  <router-outlet></router-outlet>
+  

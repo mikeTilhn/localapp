@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box; 
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.dataBox{
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid red;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+}
+.dataBox p{
+    margin: 2px;
+    width:50px;
+    height: 20px;
+    font-size: 5px;
+    // border: 1px solid green;
+}
+.cols{
+    width: 200px;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+.rows{
+    display: flex;
+    color: brown;
+}
+.title{
+    display: flex;
+    color: brown;
+}
+.rows p{
+    width: 75px;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 9px;
+
+}
+.title p{
+    width: 200px;
+    padding: 10px;
+    // border: 1px solid black;
+}
+.date-range{
+    display: flex;
+    padding:20px;
+}
