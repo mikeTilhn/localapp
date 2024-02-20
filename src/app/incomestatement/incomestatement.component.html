@@ -1,23 +1,41 @@
 <div class="container">
-   <app-first-quarter [items]="firstQuarter"></app-first-quarter>
-   <app-second-quarter [items]="secondQuarter"></app-second-quarter>
-   <app-third-quarter [items]="thirdQuarter"></app-third-quarter>
-   <app-fourth-quarter></app-fourth-quarter>
-   <div></div>
+<h3>Select quarter start date</h3>
+   <div class="section">
+   <ul>
+      <li><input #date type="date" [(ngModel)]="inputValue"></li>
+   </ul>
+   <button (click)="getquarter()">Fetch</button>
+   <div>
+      <mat-card *ngFor="let data of firstQuarter">
+         {{firstQuarter}}
+
+      </mat-card>
+   </div>
 </div>
+
+</div>
+
+
+
+
+
 <!-- <h2>Financial statement</h2>
-<mat-card *ngFor="let data of firstQuarter">
-   <div class="card">
+<mat-card *ngFor="let data of statements">
    <div class="dataBox">
       <table>
          <th></th>
          <tr><td><p>{{data.account}}</p></td></tr>
-         <tr><td><p>{{data.dateRangeStart}} - {{data.dateRangeEnd}}</p></td></tr>
+         <tr><td><p>{{data.dateRangeStart  | date: 'mediumDate'}} - {{data.dateRangeEnd | date: 'mediumDate'}} </p></td></tr>
          <tr><td><p>{{data.firstMonth}}</p></td></tr>
          <tr><td><p>{{data.secondMonth}}</p></td></tr>
          <tr><td><p>{{data.thirdMonth}}</p></td></tr>
-         <tr><td><strong><u>{{data.total}}</u></strong></td></tr>
+         <tr><td><strong><u>{{data.total}} [(ngModel)]="allAccTotals"</u></strong></td></tr>
       </table>
    </div>
-   </div>
 </mat-card> -->
+
+<!-- <div class="container">
+   <app-first-quarter [items]="firstQuarter"></app-first-quarter>
+   <app-second-quarter [items]="secondQuarter"></app-second-quarter>
+   <app-third-quarter [items]="thirdQuarter"></app-third-quarter>
+</div> -->
